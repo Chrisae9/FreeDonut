@@ -1,6 +1,7 @@
 import re
 import mechanize
 
+
 # Open D&D website survey in English
 br = mechanize.Browser()
 
@@ -9,13 +10,14 @@ br.addheaders = [('User-agent', 'Android')]
 br.set_handle_robots(False)
 page1= br.open("https://www.telldunkin.com/Index.aspx?LanguageID=US")
 
+print "FREE DONUT!\n"
 # Prints out the page
-print page1.read()
+# print page1.read()
 
 # Prints each form for debugging purposes
-for form in br.forms():
-    print "Form name:", form.name
-    print form
+#for form in br.forms():
+#     print "Form name:", form.name
+#     print form
 
 # Select the "form" on the page to edit further
 
@@ -26,9 +28,9 @@ for form in br.forms():
 br.form = list(br.forms())[0]
 
 # Prints the controls for the selected form
-for control in br.form.controls:
-    print control
-    print "type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
+#for control in br.form.controls:
+#     print control
+#     print "type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
 
 # Controls can be found by name
 box1 = br.form.find_control("CN1")
@@ -39,7 +41,6 @@ box4 = br.form.find_control("CN4")
 # User Input
 
 code = raw_input("Enter Survey Code: \n")
-253013138107053082
 # Set values
 
 box1.value = code[0:5]
@@ -52,11 +53,11 @@ box4.value = code[14:18]
 response = br.submit()
 
 # Prints the HTML spaghetti
-print response.read()
+# print response.read()
 
 # Should be the same as the response
 page2= br.response()
-print page2.read()
+# print page2.read()
 
 # Select the next form
 br.form = list(br.forms())[0]
@@ -89,11 +90,11 @@ option10.value = ["5"]
 # Submit the code                                                                                                  
 response2 = br.submit()                                                                                                          
 # Prints the HTML spaghetti                                                                                        
-print response.read()                                                                                              
+# print response.read()                                                                                              
                                                                                                                    
 # Should be the same as the response                                                                               
 page3= br.response()                                                                                               
-print page3.read()
+# print page3.read()
 
 # Select the next form
 br.form = list(br.forms())[0]
@@ -108,6 +109,7 @@ option6 = br.form.find_control("R00287")
 option7 = br.form.find_control("R00285")
 option8 = br.form.find_control("R00376")
 
+# Were you satified with your purchase
 option1.value = ["2"]
 option2.value = ["1"]
 option3.value = ["1"]
@@ -118,9 +120,9 @@ option7.value = ["1"]
 option8.value = ["1"]
 
 response3 = br.submit()
-print response.read()
+# print response.read()
 page4= br.response()
-print page4.read()
+# print page4.read()
 
 
 br.form = list(br.forms())[0]
@@ -134,42 +136,41 @@ option6 = br.form.find_control("R00366")
 
 option1.value = ["5"]
 option2.value = ["5"]
-option3.value = ["1"]
+option3.value = ["2"]
 option4.value = ["1"]
 option5.value = ["1"]
-option6.value = ["1"]
+option6.value = ["2"]
 
 response4 = br.submit()
-print response.read()
+# print response.read()
 page5= br.response()
-print page5.read()
+# print page5.read()
 
 br.form = list(br.forms())[0]
 
-option1 = br.form.find_control("R00291")
-option2 = br.form.find_control("R00290")
-
-option1.value = ["9"]
-option2.value = ["9"]
+option1 = br.form.find_control("R00078")
+option1.value = ["1"]
 
 response5 = br.submit()
-print response.read()
+# print response.read()
 page6= br.response()
-print page6.read()
+# print page6.read()
 
 br.form = list(br.forms())[0]
 
-option1 = br.form.find_control("R00347")
-option2 = br.form.find_control("R00378")
-option3 = br.form.find_control("R00346")
-option4 = br.form.find_control("R00345")
+option1 = br.form.find_control("S58200")
+option2 = br.form.find_control("S00082")
 
-option1.value = ["9"]
-option2.value = ["9"]
-option3.value = ["9"]
-option4.value = ["9"]
+#email= raw_input("Enter your email")
+#option1.value = email
+#option2.value = email
+
+option1.value = "chrisae9@gmail.com"
+option2.value = "chrisae9@gmail.com"
 
 response6 = br.submit()
-print response.read()
+# print response.read()
 page7= br.response()
-print page7.read()
+# print page7.read()
+
+print "\nYou should Receive an email soon :)"
