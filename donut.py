@@ -11,8 +11,16 @@ br.addheaders = [('User-agent', 'Android')]
 #Tell the robot to say it's not a robot
 br.set_handle_robots(False)
 page1= br.open("https://www.telldunkin.com/Index.aspx?LanguageID=US")
+#        _.-------._
+#      .'    ___    '.
+#     /     (___)     \
+#     |'._         _.'|
+#     |   `'-----'`   |
+#      \             /
+#       '-.______..-'
 
-print "FREE DONUT!\n"
+print "        _.-------._\n      .'    ___    '.\n     /     (___)     \\\n     |'._         _.'|\n     |   `'-----'`   |\n      \             /\n       '-.______..-'\n"
+print "     ---FREE DONUT!---\n"
 # Prints out the page
 # print page1.read()
 
